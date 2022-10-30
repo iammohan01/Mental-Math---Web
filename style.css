@@ -5,6 +5,7 @@
     --background-sec : #D0B49F ;
     --font-main : #523A28 ;
     --font-sec: #A47551 ;
+   
 }
 *{
     margin: 0;
@@ -132,9 +133,7 @@
 
 /* Game Page */
 .gamePage{
-    /* border: 1px solid red; */
     height: calc(100vh - 90px) ;
-    /* background-color: aqua; */
     display: none;
     flex-direction: column;
 }
@@ -149,7 +148,7 @@
     /* border: 1px solid red; */
 }
 .gpScore{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 15%;
     width: 90%;
     margin: auto;
@@ -170,7 +169,7 @@
     margin: auto;
     width: 60%;
     height: 100%;
-    font-size: 100px;
+    font-size: 80px;
     text-align: center;
     border-bottom: 5px solid var(--font-main);
     color: var(--font-main);
@@ -193,6 +192,7 @@
 }
 .row div{
     /* border: 1px solid red; */
+    width: 33%;
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -207,8 +207,4 @@ button{
     border-radius: 20px;
     background-color: var(--background-sec);
     color: var(--font-main);
-}
-button:focus{
-    scale: 0.95;
-    transition: 400ms;
 }

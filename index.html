@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="game_Pannel">
+         
         <div class="userDeatails">
             <p class="udName">Enter Your Name :</p>
             <input id="udGetName" type="text">
@@ -19,7 +20,7 @@
         <div class="gameScreen">
 
             <section class="gsUserDetail">
-                <img class="gsProfileImg" src="/assets/profile.jpg" alt="profile">
+                <img class="gsProfileImg" src="/assets/undraw_pic_profile_re_i9i4.svg" alt="profile">
     
                 <div class="gsUserName">
                     <h4>MohanSundaram J</h4>
@@ -36,7 +37,7 @@
             <div class="levels">
 
 
-                <div onclick="startGame()" class="level easy">
+                <div onclick="startGame(1)" class="level easy">
                     <div class="lvlLogo">
                         
                         <svg 
@@ -49,7 +50,7 @@
                     <p class="lvlName"> Easy</p>
     
                 </div>
-                <div onclick="startGame()" class="level medium">
+                <div onclick="startGame(2)" class="level medium">
                     <div class="lvlLogo">
                         <svg 
                         xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -64,7 +65,7 @@
                     </div>
                     <p class="lvlName"> Medium</p>
                 </div>
-                <div onclick="startGame()" class="level hard">
+                <div onclick="startGame(3)" class="level hard">
                     <div class="lvlLogo">
                         <svg 
                         xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -82,7 +83,7 @@
                     <p class="lvlName"> Hard</p>
     
                 </div>
-                <div onclick="startGame()" class="level Custom">
+                <div onclick="startGame(4)" class="level Custom">
                     <svg
                      xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
                         <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
@@ -95,35 +96,40 @@
                     <p class="gpScoreValue">Your score : <span>00</span></p> 
                     <p class="gpRemainingTime">Remaining time : <span>60</span>s</p></div>
                 <div class="gpQuestions">
-                    <p>880</p>
-                    <p>+</p>
-                    <p>990</p>
+                    <p>009</p>
+                    <p class="oper">+</p>
+                    <p>777</p>
                 </div>
                 <div class="gpInputBox">
-                    <p id="gpValue">9999</p>
+                    <p id="gpValue">0</p>
+                    <p></p>
                 </div>
                 <div class="in">
                     <div class="row1 row">
-                        <div><button onclick="operation(`AC`)" type="button">1</button></div>
-                        <div><button onclick="removeLast()" type="button">2</button></div>
-                        <div><button onclick="operation('%')" type="button">3</button></div>
+                        <div><button onclick="clik(1)" type="button">1</button></div>
+                        <div><button onclick="clik(2)" type="button">2</button></div>
+                        <div><button onclick="clik(3)" type="button">3</button></div>
                         
                     </div>
                     <div class="row2 row">
-                        <div><button onclick="operation('/')" type="button">4</button></div>
-                        <div><button onclick="operation(7)" type="button">5</button></div>
-                        <div><button onclick="operation(8)" type="button">6</button></div>
+                        <div><button onclick="clik(4)" type="button">4</button></div>
+                        <div><button onclick="clik(5)" type="button">5</button></div>
+                        <div><button onclick="clik(6)" type="button">6</button></div>
                         
                     </div>
                     <div class="row3 row">
-                        <div><button onclick="operation(9)" type="button">7</button></div>
-                        <div><button onclick="operation('*')" type="button">8</button></div>
-                        <div><button onclick="operation(4)" type="button">9</button></div>
+                        <div><button onclick="clik(7)" type="button">7</button></div>
+                        <div><button onclick="clik(8)" type="button">8</button></div>
+                        <div><button onclick="clik(9)" type="button">9</button></div>
                                          
                     </div>
                     <div class="row4 row">
-                        <div><button onclick="operation(4)" type="button">0</button></div>
-                        <div><button onclick="operation(4)" type="button">>></button></div>
+                        <div><button onclick="clik(`.`)" type="button">.</button></div>
+                        <div><button onclick="clik(0)" type="button">0</button></div>
+                        <div><button onclick="startGame(gameLevel)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+                            <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                            <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                          </svg></button></div>
                     </div>
                     
                 </div>
@@ -131,6 +137,7 @@
             </div>
         </div>
     </div>
+    
     <script src="app.js"></script>
 </body>
 </html>
