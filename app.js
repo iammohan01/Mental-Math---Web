@@ -1,3 +1,12 @@
+document.addEventListener('keydown', (event) => {
+        code = event.key ;
+        if ( (gameLevel != 0) && Number.isInteger(Number(code))){
+            
+                input+=code;
+                answerValidation();
+            
+        }      
+}, false);
 //user input name
 const USERDETAILSPAGE =  document.querySelector(".userDeatails") 
 //level page
@@ -23,6 +32,7 @@ function moveTo2ndPage(){
     LEVELPAGE.style.display = "contents";
 }
 var gameLevel = 0
+
 function startGame(level){
     LEVELS.style.display = "none";
     GAMEPANNEL.style.display =  "flex" ;
@@ -40,7 +50,9 @@ var answer = 0 ;
 let num1 ;
 let num2 ;
 let oper ;
+let countOgRanfom = 0 ;
 function generateQuestionLevel(max,op){
+    countOgRanfom++ ;
     num1 = randomNumber(max,1) ;
     num2 = randomNumber(max,1) ;
     oper =  randomNumber(op,1) ;
@@ -60,8 +72,10 @@ function generateQuestionLevel(max,op){
         }
 
     }
+        
 }
 var remain = 60 ;
+
 function timer(){
     REMAININGTIME.innerText = --remain ;
     if (remain <= 0){
@@ -73,11 +87,16 @@ function randomNumber(upper,lower){
     return Math.round(Math.random()*(upper-lower)+lower)
 }
 
-//i know here im using clik instend of click 
 var input = ""
 var score = 0
+//i know here im using clik instend of click 
 function clik(num){
     input += num;
+    answerValidation();
+    
+}
+function answerValidation(){
+    
     ANSWER.innerText = input ;
     if (input==answer){
         score++ ;
@@ -89,5 +108,6 @@ function clik(num){
         switch (gameLevel){
             case 1 :generateQuestionLevel(20,4); 
         }
+        
     }
 }
