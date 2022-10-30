@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+:root{
+    --poppins-font : 'Poppins', sans-serif;
+    --background-main : #E4D4C8 ;
+    --background-sec : #D0B49F ;
+    --font-main : #523A28 ;
+    --font-sec: #A47551 ;
+}
+*{
+    margin: 0;
+    padding-right:0 ;
+    box-sizing: border-box;
+    font-family: var(--poppins-font);
+    font-weight: 300;
+    /* border: 1px solid red; */
+}
+.userDeatails{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-image: url("/assets/wp1843998-numbers-wallpapers.jpg"); */
+    background-size: cover;
+}
+.udName,#udGetName,#udproceedtogame{
+    margin : 10px;
+}
+.udName{
+    font-size:30px;
+    color: var(--font-sec);
+    font-weight: 900;
+}
+/* username input box */
+#udGetName{
+    color: var(--font-main) ;
+    outline: none; 
+    border: none;
+    border-bottom: 3px solid var(--font-main);
+    font-size: 25px;
+    width: 30%;
+    min-width: 260px ;
+    max-width: 400px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: 700;
+}
+#udproceedtogame{
+    border: none;
+    background-color: transparent;
+    margin-top: 25px;
+    width: 100px;
+    height: 35px;
+    background-color: var(--background-sec);
+    color: var(--font-main);
+    font-size: 16px;
+    border-radius: 20px;
+}
+#udproceedtogame:hover{
+    background-color: var(--font-main);
+    color: var(--background-sec);
+}
+
+/* 2nd Page */
+.gameScreen{
+    display:none;
+}
+
+.gsUserDetail{
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+}
+.gsProfileImg{
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    margin: 15px;
+}
+.gsUserName{
+    font-size: 30px;
+}
+.gsGameScore{
+
+    font-size: 16px;
+    display: flex;
+    gap: 20px;
+}
+.gsGameScore > p{
+    color: var(--font-sec);
+}
+
+/* Levels card view */
+
+.levels{
+    display: flex;
+    flex-direction: column;
+
+}
+.level{
+    background-color: var(--background-sec);
+    height: calc(100vh / 6);
+    min-width: 200px ;
+    width: 70%;
+    margin: 20px auto;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+.level:hover{
+    cursor: pointer;
+}
+.lvlLogo{
+    width: 100%;
+    text-align: center;
+}
+.level svg{
+    margin: 20px 10px;
+    fill: var(--font-main);
+}
+/* star rotate */
+.level:hover svg{
+    transition: 2000ms;
+    rotate: 288deg;
+}
+.lvlName{
+    font-size: 20px;
+}
+
+/* Game Page */
+.gamePage{
+    /* border: 1px solid red; */
+    height: calc(100vh - 90px) ;
+    background-color: aqua;
+    display: none;
+}
+.gpQuestions{
+    border: 1px solid red;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+}
