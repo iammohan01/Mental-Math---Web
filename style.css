@@ -99,6 +99,7 @@
 .levels{
     display: flex;
     flex-direction: column;
+    /* border: 1px solid green; */
 
 }
 .level{
@@ -112,6 +113,7 @@
     flex-direction: column;
     justify-content:center;
     align-items:center;
+    /* border: 1px solid red; */
 }
 .level:hover{
     cursor: pointer;
@@ -127,7 +129,7 @@
 /* star rotate */
 .level:hover svg{
     transition: 2000ms;
-    rotate: 288deg;
+    transform: rotate(288deg);
 }
 .lvlName{
     font-size: 20px;
@@ -170,11 +172,16 @@
 #gpValue{
     margin: auto;
     width: 60%;
+    /* border: 1px solid red; */
+    min-height: 130px;
     height: 100%;
     font-size: 80px;
     text-align: center;
     border-bottom: 5px solid var(--font-main);
     color: var(--font-main);
+}
+.keyBoard{
+    visibility: hidden;
 }
 .in{
     /* border: 1px solid red; */
@@ -191,10 +198,13 @@
     gap: 10px;
     width: 100%;
     height:25% ;
+    /* align-items: center; */
+    justify-content: center;
 }
 .row div{
     /* border: 1px solid red; */
     width: 33%;
+    max-width: 300px;
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -235,4 +245,71 @@ button{
 #spHighScoreValue{
     font-size: 30px;
     text-align: center;
+}
+.customValueInput{
+    display: none;
+    /* border: 1px solid red; */
+    height: 40vh;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top:20% ;
+    
+    /* background-color: red; */
+}
+#cvNum1  {
+    height: 60px;
+    width: 60%;
+    max-width: 400px;
+    text-align: center;
+    font-size: 30px;
+}
+#cvNum1 ,.cviStart{
+    margin: 20px;
+}
+#cviStart{
+    width: 20%;
+    height: 60px;
+}
+@media (min-width:800px) {
+   
+    .levels{
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 20vh ;
+    }
+    .level{
+        max-width: 300px;
+    }
+    
+    .in{
+        /* border:1px solid red; */
+        width: 600px;
+        /* height: 100px; */
+    }
+    .row{
+        height: 100px;
+        /* border: 1px solid red; */
+
+    }
+    
+}
+@media(min-width:1200px){
+
+    .level{
+        max-width: 00px;
+    }
+    .in{
+        /* display: none; */
+        visibility: hidden;
+        /* visibility: visible; */
+    } 
+    .keyBoard{
+        visibility: visible;
+        height: 30px;
+        margin: 20px;
+        text-align: center;
+    }
 }

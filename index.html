@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Math Quiz</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="game_Pannel">
@@ -23,7 +24,7 @@
                 <img class="gsProfileImg" src="/assets/undraw_pic_profile_re_i9i4.svg" alt="profile">
     
                 <div class="gsUserName">
-                    <h4 id="gsUserNameValue">MohanSundaram J</h4>
+                    <h4 onclick="changeName()" id="gsUserNameValue"></h4>
                     <div class="gsGameScore">
                         <p>Games Won : 00</p>
                         <p>Highest Score : 00</p>
@@ -91,20 +92,30 @@
                     <p class="lvlName"> Custom</p>
                 </div>
             </div>
+            <div class="customValueInput">
+                <p>Enter Max Value</p>
+                <input id="cvNum1" type="text">
+                <button onclick="customButton()" id="cviStart">Start</button>
+            </div>
             <div class="gamePage">
                 <div class="gpScore">
                     <p class="gpScoreValue">Your score : <span>00</span></p> 
                     <p class="gpRemainingTime">Remaining time : <span>60</span>s</p></div>
                 <div class="gpQuestions">
-                    <p>009</p>
-                    <p class="oper">+</p>
-                    <p>777</p>
+                    <p></p>
+                    <p class="oper"></p>
+                    <p></p>
                 </div>
                 <div class="gpInputBox">
                     <p id="gpValue">0</p>
-                    <p></p>
+                    <!-- <p></p> -->
                 </div>
-                <div class="in">
+                <p class="keyBoard"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                  </svg> You can use your keyboard also !! Want on-screen Keyboard ? press space button.</p>
+                  <p class="keyBoard">Enter Esc to skip.</p>
+                 <div class="in">
                     <div class="row1 row">
                         <div><button onclick="clik(1)" type="button">1</button></div>
                         <div><button onclick="clik(2)" type="button">2</button></div>
@@ -137,12 +148,14 @@
                     
                 </div>
                 
+                
             </div>
         </div>  
         <div class="scorePage">
             <p class="spScore">Current Score</p>
             <p id="spScoreValue">200</p>
             <p id="spHighScoreValue">High Score : 00</p>
+            <button onclick="backToMain()" id="b2tMain">Bact to main page</button>
         </div>
     </div>
     
