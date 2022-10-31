@@ -1,7 +1,11 @@
 document.addEventListener('keydown', (event) => {
         code = event.key ;
+        if (code == "Backspace"){
+            removeLast();
+        }
         if ( (gameLevel != 0) && Number.isInteger(Number(code))){
             
+                // alert(code)
                 input+=code;
                 answerValidation();
             
@@ -9,6 +13,10 @@ document.addEventListener('keydown', (event) => {
 }, false);
 //user input name
 const USERDETAILSPAGE =  document.querySelector(".userDeatails") 
+//get user name input 
+const USERNAME = document.getElementById("udGetName")
+//set user Name value
+const SETUSERNAME  =document.getElementById("gsUserNameValue")
 //level page
 const LEVELPAGE = document.querySelector(".gameScreen")
 //Levels
@@ -27,18 +35,29 @@ const QUESTION2 = document.querySelector(".gpQuestions > p:last-child")
 const OPERATER = document.querySelector(".oper")
 //Answer INput
 const ANSWER = document.getElementById("gpValue")
+//Score Page 
+const SCOREPAGE = document.querySelector(".scorePage")
+// Game End score value 
+const FINALSCORE = document.querySelector("#spScoreValue");
 function moveTo2ndPage(){
     USERDETAILSPAGE.style.display = "none" ;
     LEVELPAGE.style.display = "contents";
+    // alert(USERNAME.value )
+    setUserName();
+}
+function setUserName(){
+    SETUSERNAME.innerText = USERNAME.value ;
+
 }
 var gameLevel = 0
-
+var myInterval ;
 function startGame(level){
     LEVELS.style.display = "none";
     GAMEPANNEL.style.display =  "flex" ;
     gameLevel = level ;
+    myInterval = setInterval(timer, 1000) ;
     switch (level){
-        case 1 : setInterval(timer,1000) ;generateQuestionLevel(20,2);//alert(QUESTION2.innerText);break; // 100,10,(+,-,*/)
+        case 1 : generateQuestionLevel(20,2);//alert(QUESTION2.innerText);break; // 100,10,(+,-,*/)
         case 2 : //alert("medium");break;  // 200,20,(+,-,*/)
         case 3 : //alert("hard");break;  // 500,20,(+,-,*/)
         case 4 : //alert("custom");break;  // 100,10,(+,-,*/)
@@ -79,9 +98,18 @@ var remain = 60 ;
 function timer(){
     REMAININGTIME.innerText = --remain ;
     if (remain <= 0){
-        remain = 0
-        // alert(0)
+        clearInterval(myInterval);
+        gmaeOver();   
     }
+    
+}
+function gmaeOver(){
+    gameLevel = 0 ;
+    FINALSCORE.innerText = score ;
+    score = 0 ;
+    GAMEPANNEL.style.display ="none"; 
+    SCOREPAGE.style.display = "flex" ;
+
 }
 function randomNumber(upper,lower){
     return Math.round(Math.random()*(upper-lower)+lower)
@@ -110,4 +138,9 @@ function answerValidation(){
         }
         
     }
+}
+function removeLast(){
+    input = input.substring(0,input.length-1);
+    ANSWER.innerText = input ;
+
 }

@@ -89,7 +89,9 @@
     gap: 20px;
 }
 .gsGameScore > p{
-    color: var(--font-sec);
+    color: var(--font-main);
+    color: black;
+    /* font-size: x-large; */
 }
 
 /* Levels card view */
@@ -207,4 +209,30 @@ button{
     border-radius: 20px;
     background-color: var(--background-sec);
     color: var(--font-main);
+}
+/* Score Page */
+.scorePage{
+    /* border:1px solid red; */
+    width: 80%;
+    margin: auto;
+    height: 90vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.spScore{
+    /* border: 1px solid red; */
+    text-align: center;
+    font-size: 30px;
+    margin: 20px;
+    /* margin-top: 20%; */
+}
+#spScoreValue{
+    font-size: 100px;
+    text-align: center;
+}
+#spHighScoreValue{
+    font-size: 30px;
+    text-align: center;
 }
