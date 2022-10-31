@@ -27,7 +27,7 @@
                     <h4 onclick="changeName()" id="gsUserNameValue"></h4>
                     <div class="gsGameScore">
                         <p>Games Won : 00</p>
-                        <p>Highest Score : 00</p>
+                        <p>Highest Score : <span id="highScore">0</span></p>
 
                     </div>
 <!-- Easy Medium Hard Custom -->
@@ -152,9 +152,10 @@
             </div>
         </div>  
         <div class="scorePage">
+
             <p class="spScore">Current Score</p>
             <p id="spScoreValue">200</p>
-            <p id="spHighScoreValue">High Score : 00</p>
+            <p id="spHighScoreValue">High Score : <span id="spHighScoreValueValue"></span> </p>
             <button onclick="backToMain()" id="b2tMain">Bact to main page</button>
         </div>
     </div>

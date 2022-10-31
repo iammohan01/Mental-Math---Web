@@ -1,16 +1,18 @@
 document.addEventListener('keydown', (event) => {
         code = event.key ;
-        
-        if (code == "Backspace"){
+        // alert(code)
+        if ((gameLevel != 0) && code == "Backspace"){
             removeLast();
+        }
+        if ((gameLevel != 0) && code == "Escape"){
+            startGame(gameLevel);
         }
         if ( (gameLevel != 0) && Number.isInteger(Number(code))){
             if (event.keyCode == 32){
-                // alert("");
                 onScreenKeyboard();
             }
+            
             else{
-                // alert(code)
                 input+=code;
                 answerValidation();
             }
@@ -24,7 +26,7 @@ const USERNAME = document.getElementById("udGetName")
 //set user Name value
 const SETUSERNAME  =document.getElementById("gsUserNameValue")
 //level page
-const LEVELPAGE = document.querySelector(".gameScreen")
+const GAMEPAGE = document.querySelector(".gameScreen")
 //Levels
 const LEVELS = document.querySelector(".levels")
 //Game Pannel
@@ -47,37 +49,42 @@ const SCOREPAGE = document.querySelector(".scorePage")
 const FINALSCORE = document.querySelector("#spScoreValue");
 //custom game window
 const CUSTOMWINDOW = document.querySelector('.customValueInput');
+//high score
+const HIGHSCORE = document.getElementById("highScore")
+//set high to score page element 
+const SETHIGHSCORELASTPAGE = document.getElementById("spHighScoreValueValue")
 function moveTo2ndPage(){
     USERDETAILSPAGE.style.display = "none" ;
-    console.log( LEVELPAGE.style.display);
-    LEVELPAGE.style.display = "contents";
-    console.log( LEVELPAGE.style.display);
+    GAMEPAGE.style.display = "contents";
+    LEVELS.style.display="flex"
     
     if (SETUSERNAME.innerText == "" ){
         setUserName();
-    }
-    // alert("From move 2 ")
-    
+    }    
 }
 function setUserName(){
     SETUSERNAME.innerText = USERNAME.value ;
     setUserNameLocal();
 
 }
-var gameLevel = 0
+var gameLevel = 0;
+let isGameStarted = 0;
 var myInterval ;
 function startGame(level){
     LEVELS.style.display = "none";
-    console.log( LEVELPAGE.style.display);
-    
+    console.log( GAMEPAGE.style.display);
+    isGameStarted++ ;
     GAMEPANNEL.style.display =  "flex" ;
-    // gameLevel = level ;
-    
-    switch (level){
-        case 1 : gameLevel = level ;  myInterval = setInterval(timer, 1000) ; generateQuestionLevel(20,2);break;//alert(QUESTION2.innerText);break; // 100,10,(+,-,*/)
-        case 2 : gameLevel = level ;  myInterval = setInterval(timer, 1000) ; generateQuestionLevel(25,4);break;//alert("medium");break;  // 200,20,(+,-,*/)
-        case 3 : gameLevel = level ;  myInterval = setInterval(timer, 1000) ; generateQuestionLevel(40,4);break;//alert("hard");break;  // 500,20,(+,-,*/)
-        case 4 : customGame(); myInterval = setInterval(timer, 1000) ;  break;// generateQuestionLevel(20,2);//alert("custom");break;  // 100,10,(+,-,*/)
+
+        switch (level){
+        case 1 :  generateQuestionLevel(20,3);break;       
+        case 2 :  generateQuestionLevel(25,4);break;
+        case 3 :  generateQuestionLevel(40,4);break;
+        case 4 :  customGame(); break;
+    }
+    gameLevel = level ; 
+    if (isGameStarted == 1 && level!=4){
+        myInterval = setInterval(timer, 1000) ; 
     }
     
 }
@@ -98,6 +105,7 @@ function customButton(){
         CUSTOMWINDOW.style.display = "none";
         gameLevel = 4 ;
         generateQuestionLevel(Number(CUSTOMNUMBER1.value),4);
+        myInterval = setInterval(timer, 1000) ; 
     }
 }
 
@@ -133,7 +141,7 @@ var remain = 60 ;
 
 function timer(){
     REMAININGTIME.innerText = --remain ;
-    if (remain <= 9){
+    if (remain <= 0){
         clearInterval(myInterval);
         gameOver();   
         
@@ -144,11 +152,17 @@ function gameOver(){
     gameLevel = 0 ;
     remain = 60 ;
     FINALSCORE.innerText = score ;
+    if (score > HIGHSCORE.innerText){
+        HIGHSCORE.innerText = score;
+        
+        setHighScoreLocal();
+    }
+    SETHIGHSCORELASTPAGE.innerText = HIGHSCORE.innerText ;
     score = 0 ;
     GAMEPANNEL.style.display ="none"; 
     SCOREPAGE.style.display = "flex" ;
-    // moveTo2ndPage();
-    backToMain();
+
+    
 
 }
 function randomNumber(upper,lower){
@@ -194,14 +208,18 @@ function removeLast(){
 
 function changeName(){
     let na = prompt("Enter a new Name :") ;
-    USERNAME.value = na != "" ? na:"User";
-    SETUSERNAME.innerText = na != "" ? na:"User" ;
+    USERNAME.value = na.length != 0 ? na:"User";
+    SETUSERNAME.innerText = na.length != 0 ? na:"User" ;
     setUserNameLocal();
 }
 function setUserNameLocal(){
     var name =  USERNAME.value ;
     localStorage.setItem("username",name);
 
+}
+function setHighScoreLocal(){
+    var Hscore = HIGHSCORE.innerText;
+    localStorage.setItem("highScore",Hscore)
 }
 let onScreen = false;
 function onScreenKeyboard(){
@@ -215,21 +233,16 @@ function onScreenKeyboard(){
         document.querySelector(".in").style.visibility = "hidden";
         onScreen = false ;
     }
-    // alert(!onScreen);
 }
 function backToMain(){
     SCOREPAGE.style.display = "none";
     moveTo2ndPage();
-    // alert();
 }
-if (localStorage.getItem("username" ) == null){
-    // setUserNameLocal();
-}
-else{
+if (localStorage.getItem("username" ) != null){
     var getusename = localStorage.getItem("username");
+    var getHighScore = localStorage.getItem("highScore")||0;
     SETUSERNAME.innerText = getusename;
-    // alert(getusename);
-    // startGame();
+    HIGHSCORE.innerText =getHighScore ;
     moveTo2ndPage();
 
 }
