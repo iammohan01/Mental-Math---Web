@@ -63,7 +63,7 @@ function moveTo2ndPage(){
     }    
 }
 function setUserName(){
-    SETUSERNAME.innerText = USERNAME.value ;
+    SETUSERNAME.innerText = USERNAME.value || "User" ;
     setUserNameLocal();
 
 }
