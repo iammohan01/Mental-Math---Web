@@ -247,7 +247,11 @@ button{
     max-width: 400px;
     text-align: center;
     font-size: 30px;
+    border: none;
+    border-bottom: 2px solid;
+    outline: none;
 }
+
 #cvNum1 ,.cviStart{
     margin: 20px;
 }
